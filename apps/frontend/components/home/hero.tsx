@@ -32,7 +32,7 @@ export default function Hero() {
 
         <div className="flex flex-col gap-4 md:flex-row md:gap-12">
           <a
-            href="https://github.com/srbhr/Resume-Matcher"
+            href="https://github.com/ls-0302/CareerPilot-CN"
             target="_blank"
             rel="noopener noreferrer"
             className={buttonClass}

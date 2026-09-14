@@ -14,6 +14,7 @@ This repository is a substantial derivative of Resume-Matcher, prepared on 2026-
 ## Changed
 
 - Rebranded application metadata and package identifiers as CareerPilot-CN.
+- Updated the landing-page repository link to this distribution.
 - Scoped container publishing to version tags/manual runs and the fork owner's registry namespace.
 - Added Job Radar to the dashboard and FastAPI router registry.
 - Added shared design tokens and responsive overflow safeguards.
