@@ -49,12 +49,12 @@ export const SwissGrid = ({ children }: { children: React.ReactNode }) => {
           <div className="flex items-center gap-2">
             <Image
               src="/logo.svg"
-              alt="Resume Matcher"
+              alt="CareerPilot-CN"
               width={20}
               height={20}
               className="w-5 h-5"
             />
-            <span className="uppercase font-bold">Resume Matcher</span>
+            <span className="uppercase font-bold">CareerPilot-CN</span>
           </div>
           <div className="flex items-center gap-4">
             <Link

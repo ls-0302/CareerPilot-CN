@@ -17,6 +17,7 @@ import AlertCircle from 'lucide-react/dist/esm/icons/alert-circle';
 import RefreshCw from 'lucide-react/dist/esm/icons/refresh-cw';
 import Plus from 'lucide-react/dist/esm/icons/plus';
 import Settings from 'lucide-react/dist/esm/icons/settings';
+import SearchCheck from 'lucide-react/dist/esm/icons/search-check';
 import AlertTriangle from 'lucide-react/dist/esm/icons/alert-triangle';
 
 import {
@@ -649,6 +650,21 @@ export default function DashboardPage() {
             </Card>
           );
         })}
+
+        {/* CareerPilot-CN: explainable batch job radar */}
+        <Link href="/radar" className="block h-full">
+          <Card className="aspect-square h-full" variant="interactive">
+            <div className="flex h-full flex-1 flex-col justify-between">
+              <SearchCheck className="h-10 w-10 text-primary" />
+              <div>
+                <CardTitle className="font-serif text-xl">岗位雷达</CardTitle>
+                <CardDescription className="mt-2 leading-5">
+                  批量排序工程与 AI 岗位，解释技能覆盖和硬性条件
+                </CardDescription>
+              </div>
+            </div>
+          </Card>
+        </Link>
 
         {/* 3. Create Tailored Resume */}
         <Card className="aspect-square h-full" variant="default">

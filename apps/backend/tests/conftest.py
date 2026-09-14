@@ -7,7 +7,7 @@ import sys
 import tempfile
 from collections.abc import AsyncIterator, Iterator
 from pathlib import Path
-from typing import Any, NoReturn
+from typing import Any
 
 import pytest
 
@@ -61,15 +61,42 @@ def deny_external_network(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
     network connection must explicitly replace this guard at their boundary.
     """
 
-    def blocked_connection(*args: Any, **kwargs: Any) -> NoReturn:
+    original_create_connection = socket.create_connection
+    original_connect = socket.socket.connect
+    original_connect_ex = socket.socket.connect_ex
+
+    def is_loopback(address: Any) -> bool:
+        """Allow asyncio's Windows self-pipe while denying external traffic."""
+        return (
+            isinstance(address, tuple)
+            and bool(address)
+            and str(address[0]).casefold() in {"127.0.0.1", "::1", "localhost"}
+        )
+
+    def blocked_connection(*args: Any, **kwargs: Any) -> None:
         del args, kwargs
         raise UnexpectedNetworkAccess(
             "External network access blocked in deterministic backend tests"
         )
 
-    monkeypatch.setattr(socket, "create_connection", blocked_connection)
-    monkeypatch.setattr(socket.socket, "connect", blocked_connection)
-    monkeypatch.setattr(socket.socket, "connect_ex", blocked_connection)
+    def guarded_create_connection(address: Any, *args: Any, **kwargs: Any) -> socket.socket:
+        if is_loopback(address):
+            return original_create_connection(address, *args, **kwargs)
+        blocked_connection(address, *args, **kwargs)
+
+    def guarded_connect(sock: socket.socket, address: Any) -> None:
+        if is_loopback(address):
+            return original_connect(sock, address)
+        blocked_connection(address)
+
+    def guarded_connect_ex(sock: socket.socket, address: Any) -> int:
+        if is_loopback(address):
+            return original_connect_ex(sock, address)
+        blocked_connection(address)
+
+    monkeypatch.setattr(socket, "create_connection", guarded_create_connection)
+    monkeypatch.setattr(socket.socket, "connect", guarded_connect)
+    monkeypatch.setattr(socket.socket, "connect_ex", guarded_connect_ex)
     yield
 
 

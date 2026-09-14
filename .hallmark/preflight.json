@@ -1,0 +1,8 @@
+{
+  "date": "2026-09-14",
+  "fontStack": "Geist + Space Grotesk + Noto Sans SC",
+  "palette": "Swiss warm canvas with black structure and Hyper Blue accent",
+  "motion": "motion-cut; no dedicated motion library",
+  "spacing": "4px Swiss scale",
+  "framework": "Next.js 16 App Router + Tailwind CSS 4"
+}

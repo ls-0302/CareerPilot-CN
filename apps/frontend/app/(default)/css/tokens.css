@@ -1,0 +1,44 @@
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 · genre: modern-minimal · macrostructure: Workbench · theme: Cobalt · enrichment: none · audience: Chinese engineering and AI job seekers · use: rank and explain jobs · tone: technical · contrast: pass (40–41) · nav: N/A · footer: N/A · slop: pass (42–45) · honest: pass (46) · chrome: pass (47) · tokens: pass (48) · responsive: pass (34, 49–57; QA at 320/375/414/768/1280) · icons: pass (30) */
+:root {
+  --color-radar-paper: oklch(98.5% 0.004 250);
+  --color-radar-panel: oklch(96% 0.008 250);
+  --color-radar-panel-strong: oklch(91% 0.012 250);
+  --color-radar-rule: oklch(82% 0.012 256);
+  --color-radar-rule-strong: oklch(62% 0.018 256);
+  --color-radar-ink: oklch(24% 0.02 258);
+  --color-radar-ink-soft: oklch(38% 0.018 257);
+  --color-radar-muted: oklch(48% 0.014 257);
+  --color-radar-accent: oklch(48% 0.2 256);
+  --color-radar-accent-ink: oklch(98.5% 0.004 250);
+  --color-radar-success: oklch(43% 0.13 155);
+  --color-radar-warning: oklch(52% 0.13 72);
+  --color-radar-danger: oklch(48% 0.17 28);
+  --color-radar-focus: oklch(42% 0.19 256);
+
+  --font-radar-display: var(--font-space-grotesk), var(--font-noto-sans-sc), sans-serif;
+  --font-radar-body: var(--font-geist), var(--font-noto-sans-sc), sans-serif;
+  --font-radar-mono: var(--font-geist), var(--font-noto-sans-sc), monospace;
+
+  --space-radar-xs: 0.5rem;
+  --space-radar-sm: 0.75rem;
+  --space-radar-md: 1rem;
+  --space-radar-lg: 1.5rem;
+  --space-radar-xl: 2.5rem;
+  --space-radar-2xl: 4rem;
+
+  --text-radar-sm: 0.8rem;
+  --text-radar-base: 1rem;
+  --text-radar-md: 1.25rem;
+  --text-radar-lg: 1.5625rem;
+  --text-radar-xl: 1.9531rem;
+  --text-radar-display: clamp(2rem, 4vw + 0.5rem, 4.25rem);
+
+  --ease-radar-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-radar-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-radar-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-radar-micro: 120ms;
+  --dur-radar-short: 220ms;
+  --dur-radar-long: 420ms;
+  --rule-radar: 1px;
+  --radius-radar: 0.375rem;
+}

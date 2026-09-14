@@ -27,6 +27,7 @@ from app.routers import (
     enrichment_router,
     health_router,
     jobs_router,
+    job_radar_router,
     resume_wizard_router,
     resumes_router,
 )
@@ -80,8 +81,8 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 
 app = FastAPI(
-    title="Resume Matcher API",
-    description="AI-powered resume tailoring for job descriptions",
+    title="CareerPilot-CN API",
+    description="Explainable job ranking and AI-assisted resume workflow for Chinese job seekers",
     version=__version__,
     lifespan=lifespan,
 )
@@ -110,6 +111,8 @@ app.include_router(health_router, prefix="/api/v1")
 app.include_router(config_router, prefix="/api/v1")
 app.include_router(resumes_router, prefix="/api/v1")
 app.include_router(jobs_router, prefix="/api/v1")
+# CareerPilot-CN: deterministic, offline-first job ranking added to the upstream API.
+app.include_router(job_radar_router, prefix="/api/v1")
 app.include_router(enrichment_router, prefix="/api/v1")
 app.include_router(applications_router, prefix="/api/v1")
 app.include_router(resume_wizard_router, prefix="/api/v1")
@@ -119,7 +122,7 @@ app.include_router(resume_wizard_router, prefix="/api/v1")
 async def root():
     """Root endpoint."""
     return {
-        "name": "Resume Matcher API",
+        "name": "CareerPilot-CN API",
         "version": __version__,
         "docs": "/docs",
     }

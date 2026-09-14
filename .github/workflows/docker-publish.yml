@@ -2,8 +2,6 @@ name: Publish Docker Image
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "v*.*.*"
   workflow_dispatch:
@@ -53,8 +51,8 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ghcr.io/srbhr/resume-matcher
-            ${{ env.HAS_DOCKERHUB != '' && 'srbhr/resume-matcher' || '' }}
+            ghcr.io/${{ github.repository_owner }}/careerpilot-cn
+            ${{ env.HAS_DOCKERHUB != '' && format('{0}/careerpilot-cn', env.HAS_DOCKERHUB) || '' }}
           tags: |
             type=raw,value=validation-${{ github.sha }},enable=${{ inputs.dry_run == true }}
             type=raw,value=latest,enable={{is_default_branch}}

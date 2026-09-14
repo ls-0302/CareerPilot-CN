@@ -1,14 +1,19 @@
-"""Business logic services."""
+"""Business-logic service package.
 
-from app.services.parser import parse_document, parse_resume_to_json
-from app.services.improver import improve_resume, generate_improvements
-from app.services.refiner import refine_resume
+Service modules intentionally stay lazy. Importing one lightweight service
+(for example the offline job radar) must not initialize document parsing,
+ONNX detection, or the LLM client. Callers import functions from their owning
+module, such as ``app.services.parser`` or ``app.services.improver``.
+"""
 
 __all__ = [
-    "parse_document",
-    "parse_resume_to_json",
-    "improve_resume",
-    "generate_improvements",
-    "refine_resume",
+    "ats",
+    "cover_letter",
+    "improver",
+    "interview_prep",
+    "job_radar",
+    "parser",
+    "refiner",
+    "resume_preservation",
+    "resume_wizard",
 ]
-

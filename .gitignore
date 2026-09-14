@@ -41,6 +41,7 @@ uv.lock
 
 # Test artifacts
 .pytest_cache/
+.pytest-radar-*/
 .coverage
 coverage.xml
 htmlcov/

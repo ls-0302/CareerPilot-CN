@@ -1,8 +1,8 @@
 services:
-  resume-matcher:
+  careerpilot-cn:
     image: ghcr.io/srbhr/resume-matcher
     build: .
-    container_name: resume-matcher
+    container_name: careerpilot-cn
     ports:
       - "${PORT:-3000}:3000"
     volumes:

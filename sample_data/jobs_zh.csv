@@ -1,0 +1,5 @@
+job_id,title,company,location,description,source_url
+demo-1,工程技术管理岗,湖湘建设发展集团,湖南·长沙,硕士优先。负责施工管理、工程测量、质量安全与项目管理，参与投标文件编制和工程规范核验。,https://example.com/jobs/demo-1
+demo-2,AI 应用工程师,岳麓数智研究院,湖南·长沙,负责大语言模型应用研发，要求 Python、FastAPI、RAG、向量数据库、Docker 和 REST API 经验。,https://example.com/jobs/demo-2
+demo-3,隧道监测工程师,南岭交通设计院,广东·广州,负责铁路隧道工程测量、变形监测、监测数据分析和有限元复核，本科及以上学历。,https://example.com/jobs/demo-3
+demo-4,高级算法研究员,北辰计算实验室,北京,博士学历，要求 5 年机器学习经验，熟练 TensorFlow、Kubernetes、模型微调和向量数据库。,https://example.com/jobs/demo-4
